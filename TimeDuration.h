@@ -15,7 +15,7 @@ class TimeDuration{
   TimeDuration();
   ~TimeDuration();
   void startTime();
-  doTime(int duration);
+  void doTime(int duration);
   String showTime(byte duration, char first, char last);  //see .cpp file for 'char' usage
   unsigned long makeTime(int setDuration);
 
