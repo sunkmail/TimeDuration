@@ -58,7 +58,7 @@ void TimeDuration::doTime(int duration[4])
     duration[1] = elapsed / OneHour;         // determine how many full hours in number
     elapsed = elapsed - (duration[1] * OneHour); // Removes full hours, so TIME is less than 1 Hour
   }
-  if (Time >= OneMin)
+  if (elapsed >= OneMin)
   {
     duration[2] = elapsed / OneMin;         // determine how many full mins in number
     elapsed = elapsed - (duration[2] * OneMin); // Removes full mins, so TIME is less than 1 min
@@ -69,7 +69,7 @@ void TimeDuration::doTime(int duration[4])
     duration[4] = elapsed - (duration[3] * OneSecond); // Removes full mins, so TIME is less than 1 min
     // Less than full seconds not used on display, no more math needed
   }
-  return duration[];
+  
 }
 
 
