@@ -1,0 +1,6 @@
+TimeDuration  KEYWORD1
+
+doTime  KEYWORD2
+makeTime  KEYWORD2
+showTime  KEYWORD2
+startTime KEYWORD2
