@@ -11,9 +11,7 @@
  */
 
 
-class TimeDuration{
- //class TimeDuration: public Print{
-  
+class TimeDuration {
   public:
   TimeDuration();
   ~TimeDuration();
