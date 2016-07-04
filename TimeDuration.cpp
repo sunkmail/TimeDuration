@@ -1,3 +1,5 @@
+// TimeDuration V0.0 - Scott Mitten  sunkmail@gmail.com
+
 #include "TimeDuration.h"
 
 const unsigned long OneDay = 86400000;
