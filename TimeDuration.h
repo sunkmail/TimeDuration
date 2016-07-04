@@ -1,3 +1,5 @@
+// TimeDuration V0.0 - Scott Mitten  sunkmail@gmail.com
+
 #ifndef TIMEDURATION_H
 #define TIMEDURATION_H
  
@@ -10,6 +12,7 @@
 
 
 class TimeDuration{
+ //class TimeDuration: public Print{
   
   public:
   TimeDuration();
