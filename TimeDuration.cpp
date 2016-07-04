@@ -98,53 +98,53 @@ String TimeDuration::showTime(int duration[], char first = 'd', char last)
 {
   String displayTime;
 
-  switch first = 'd'                     // Start at the 'first' variable desired
+  switch(first)                   // Start at the 'first' variable desired
 {
   case 'd':
     if (duration[0] < 10)         //if Days <10, add a leading zero
         DisplayTime = "0";
-      DisplayTime += duration[0];
+      displayTime += duration[0];
       if (last == 'd')
         break;
       DisplayTime += ":";
 
     case 'h':
       if (duration[1] < 10)         // hours
-        DisplayTime += "0";
-      DisplayTime += duration[1];
+        displayTime += "0";
+      displayTime += duration[1];
       if (last == 'h')
         break;
-      DisplayTime += ":";
+      displayTime += ":";
 
     case 'm':
       if (duration[2] < 10)
-        DisplayTime += "0";
+        displayTime += "0";
       DisplayTime += duration[2];   // mins
       if (last == 'm')
         break;
-      DisplayTime += ":";
+      displayTime += ":";
 
     case 's':
       if (duration[3] < 10)         // seconds
-        DisplayTime += "0";
-      DisplayTime += duration[3];
+        displayTime += "0";
+      displayTime += duration[3];
       if (last == 's')
         break;
-      DisplayTime += ".";
+      displayTime += ".";
 
       if (duration[4] < 100)         // milli-seconds
-        DisplayTime += "0";
+        displayTime += "0";
       else if (duration[4] < 10)
-        DisplayTime += "00";
+        displayTime += "00";
 
-      DisplayTime += duration[4];
+      displayTime += duration[4];
       break;
 
      default:
-     DisplayTime = "VAR Error!";
+     displayTime = "VAR Error!";
   }
 
-  return DisplayTime;
+  return displayTime;
 
 }
 
