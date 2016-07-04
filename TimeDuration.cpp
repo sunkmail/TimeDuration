@@ -94,7 +94,7 @@ void TimeDuration::doTime(int duration[4])
 //    ie. showTime(int array, char first = 'h');     results in hh:mm:ss.ms
 
 
-String TimeDuration::showTime(int duration[], char first = 'd', char last)
+String TimeDuration::showTime(int duration[], char first = 'd', char last = '1')
 {
   String displayTime;
 
@@ -102,11 +102,11 @@ String TimeDuration::showTime(int duration[], char first = 'd', char last)
 {
   case 'd':
     if (duration[0] < 10)         //if Days <10, add a leading zero
-        DisplayTime = "0";
+        displayTime = "0";
       displayTime += duration[0];
       if (last == 'd')
         break;
-      DisplayTime += ":";
+      displayTime += ":";
 
     case 'h':
       if (duration[1] < 10)         // hours
@@ -119,7 +119,7 @@ String TimeDuration::showTime(int duration[], char first = 'd', char last)
     case 'm':
       if (duration[2] < 10)
         displayTime += "0";
-      DisplayTime += duration[2];   // mins
+      displayTime += duration[2];   // mins
       if (last == 'm')
         break;
       displayTime += ":";
@@ -163,9 +163,5 @@ unsigned long TimeDuration::makeTime(int setDuration[])
 
   return makeMillis;
 }
-
-
-
-
 
 
