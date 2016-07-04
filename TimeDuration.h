@@ -21,7 +21,7 @@ class TimeDuration {
   unsigned long makeTime(int setDuration);
 
  
-  Private:
+  private:
   unsigned long timeStart;
   int duration[4];
   int setDuration[4];  
