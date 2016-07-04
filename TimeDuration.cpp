@@ -7,9 +7,9 @@ const unsigned long OneHour = 3600000;
 const unsigned long OneMin = 60000;
 const unsigned long OneSecond = 1000;
 
-unsigned long timeStart;
-int duration[4];
-int setDuration[4];
+unsigned long _timeStart;
+int _duration[4];
+int _setDuration[4];
 
 
 //<<constructor>>
@@ -29,11 +29,11 @@ TimeDuration::~TimeDuration()
 // ************************ startTime ******************************************
 
 
-// Baseline the Start of the TimeDuration count, OR reset duration back to zero
+// Baseline the Start of the TimeDuration count, OR reset _duration back to zero
 
 void TimeDuration::startTime()
 {
-  timeStart = millis();
+  _timeStart = millis();
 }
 
 
@@ -43,30 +43,30 @@ void TimeDuration::startTime()
 
 
 // Figure out how long has past since timeStart and return a Byte array in format [dd,hh,mm,ss,ms]
-void TimeDuration::doTime(int duration[4])
+void TimeDuration::doTime(int _duration[4])
 {
-  unsigned long elapsed;
-  elapsed = (millis() - timeStart);
+  unsigned long _elapsed;
+  _elapsed = (millis() - _timeStart);
 
-  if (elapsed >= OneDay)
+  if (_elapsed >= OneDay)
   {
-    duration[0] = elapsed / OneDay;         // determine how many full days in number
-    elapsed = elapsed - (duration[0] * OneDay); // Removes full days, so TIME is less than 1 Day
+    _duration[0] = _elapsed / OneDay;         // determine how many full days in number
+    _elapsed = _elapsed - (_duration[0] * OneDay); // Removes full days, so TIME is less than 1 Day
   }
-  if (elapsed >= OneHour)
+  if (_elapsed >= OneHour)
   {
-    duration[1] = elapsed / OneHour;         // determine how many full hours in number
-    elapsed = elapsed - (duration[1] * OneHour); // Removes full hours, so TIME is less than 1 Hour
+    _duration[1] = _elapsed / OneHour;         // determine how many full hours in number
+    _elapsed = _elapsed - (_duration[1] * OneHour); // Removes full hours, so TIME is less than 1 Hour
   }
-  if (elapsed >= OneMin)
+  if (_elapsed >= OneMin)
   {
-    duration[2] = elapsed / OneMin;         // determine how many full mins in number
-    elapsed = elapsed - (duration[2] * OneMin); // Removes full mins, so TIME is less than 1 min
+    _duration[2] = _elapsed / OneMin;         // determine how many full mins in number
+    _elapsed = _elapsed - (_duration[2] * OneMin); // Removes full mins, so TIME is less than 1 min
   }
-  if (elapsed >= OneSecond)
+  if (_elapsed >= OneSecond)
   {
-    duration[3] = elapsed / OneSecond;         // determine how many full days in number
-    duration[4] = elapsed - (duration[3] * OneSecond); // Removes full mins, so TIME is less than 1 min
+    _duration[3] = _elapsed / OneSecond;         // determine how many full days in number
+    _duration[4] = _elapsed - (_duration[3] * OneSecond); // Removes full mins, so TIME is less than 1 min
     // Less than full seconds not used on display, no more math needed
   }
   
@@ -87,64 +87,64 @@ void TimeDuration::doTime(int duration[4])
 //  ****  ^^^^ To Fix future update!  ^^^^ *********
 
 //  if 'first' variable used, and other than ('d','h','m','s'), "VAR Error!" is returned .
-//  if 'last' variable other than ('d','h','m','s'), up to (and including) ms shown
+//  if '_last' variable other than ('d','h','m','s'), up to (and including) ms shown
 
 // If only one item and lower (including ms) are desired, function can be called as:
-//  showTime(int array, char first = 'char of interest');     Result will show all down to ms
-//    ie. showTime(int array, char first = 'h');     results in hh:mm:ss.ms
+//  showTime(int array, char _first = 'char of interest');     Result will show all down to ms
+//    ie. showTime(int array, char _first = 'h');     results in hh:mm:ss.ms
 
 
-String TimeDuration::showTime(int duration[], char first = 'd', char last = '1')
+String TimeDuration::showTime(int _duration[], char _first = 'd', char _last = '1')
 {
-  String displayTime;
+  String _displayTime;
 
-  switch(first)                   // Start at the 'first' variable desired
+  switch(_first)                   // Start at the 'first' variable desired
 {
   case 'd':
-    if (duration[0] < 10)         //if Days <10, add a leading zero
-        displayTime = "0";
-      displayTime += duration[0];
-      if (last == 'd')
+    if (_duration[0] < 10)         //if Days <10, add a leading zero
+        _displayTime = "0";
+      _displayTime += _duration[0];
+      if (_last == 'd')
         break;
-      displayTime += ":";
+      _displayTime += ":";
 
     case 'h':
-      if (duration[1] < 10)         // hours
-        displayTime += "0";
-      displayTime += duration[1];
-      if (last == 'h')
+      if (_duration[1] < 10)         // hours
+        _displayTime += "0";
+      _displayTime += _duration[1];
+      if (_last == 'h')
         break;
-      displayTime += ":";
+      _displayTime += ":";
 
     case 'm':
-      if (duration[2] < 10)
-        displayTime += "0";
-      displayTime += duration[2];   // mins
-      if (last == 'm')
+      if (_duration[2] < 10)
+        _displayTime += "0";
+      _displayTime += _duration[2];   // mins
+      if (_last == 'm')
         break;
-      displayTime += ":";
+      _displayTime += ":";
 
     case 's':
-      if (duration[3] < 10)         // seconds
-        displayTime += "0";
-      displayTime += duration[3];
-      if (last == 's')
+      if (_duration[3] < 10)         // seconds
+        _displayTime += "0";
+      _displayTime += _duration[3];
+      if (_last == 's')
         break;
-      displayTime += ".";
+      _displayTime += ".";
 
-      if (duration[4] < 100)         // milli-seconds
-        displayTime += "0";
-      else if (duration[4] < 10)
-        displayTime += "00";
+      if (_duration[4] < 100)         // milli-seconds
+        _displayTime += "0";
+      else if (_duration[4] < 10)
+        _displayTime += "00";
 
-      displayTime += duration[4];
+      _displayTime += _duration[4];
       break;
 
      default:
-     displayTime = "VAR Error!";
+     _displayTime = "VAR Error!";
   }
 
-  return displayTime;
+  return _displayTime;
 
 }
 
@@ -155,13 +155,13 @@ String TimeDuration::showTime(int duration[], char first = 'd', char last = '1')
 
 
 
-unsigned long TimeDuration::makeTime(int setDuration[])
+unsigned long TimeDuration::makeTime(int _setDuration[])
 {
-  unsigned long makeMillis;
+  unsigned long _makeMillis;
 
-  makeMillis = ((setDuration[0] * OneDay) + (setDuration[1] * OneHour) + (setDuration[2] * OneMin) + (setDuration[3] * OneSecond) + setDuration[4]);
+  _makeMillis = ((_setDuration[0] * OneDay) + (_setDuration[1] * OneHour) + (_setDuration[2] * OneMin) + (_setDuration[3] * OneSecond) + _setDuration[4]);
 
-  return makeMillis;
+  return _makeMillis;
 }
 
 
