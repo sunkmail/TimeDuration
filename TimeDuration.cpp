@@ -31,7 +31,7 @@ TimeDuration::~TimeDuration()
 
 // Baseline the Start of the TimeDuration count, OR reset duration back to zero
 
-TimeDuration::startTime()
+void TimeDuration::startTime()
 {
   timeStart = millis();
 }
