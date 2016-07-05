@@ -1,4 +1,4 @@
-// TimeDuration V0.0.1 - Scott Mitten  sunkmail@gmail.com
+// TimeDuration V0.0.1-beta - Scott Mitten  sunkmail@gmail.com
 
 #ifndef TIMEDURATION_H
 #define TIMEDURATION_H
