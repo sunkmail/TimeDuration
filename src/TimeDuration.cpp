@@ -8,8 +8,8 @@ const unsigned long OneMin = 60000;
 const unsigned long OneSecond = 1000;
 
 unsigned long _timeStart;
-int _duration[4];
-int _setDuration[4];
+int _duration[5];
+int _setDuration[5];
 
 
 //<<constructor>>
