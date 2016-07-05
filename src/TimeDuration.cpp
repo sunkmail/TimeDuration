@@ -1,4 +1,4 @@
-// TimeDuration V0.0 - Scott Mitten  sunkmail@gmail.com
+// TimeDuration V0.0.1 - Scott Mitten  sunkmail@gmail.com
 
 #include "TimeDuration.h"
 
@@ -8,14 +8,14 @@ const unsigned long OneMin = 60000;
 const unsigned long OneSecond = 1000;
 
 unsigned long _timeStart;
-int _duration[5];
-int _setDuration[5];
+int _duration[] = {0, 0, 0, 0, 0};    // Explicitly set duration data arrays to zero
+int _setDuration[] = {0, 0, 0, 0, 0};
 
 
 //<<constructor>>
 TimeDuration::TimeDuration()
 {
-  startTime();    // sets baseline time, if not called later.
+  startOfTime();                        // sets baseline time, incase not done later.
   /* Nothing else to Construct */
 }
 
@@ -26,7 +26,7 @@ TimeDuration::~TimeDuration()
 }
 
 
-// ************************ startTime ******************************************
+// ************************ startOfTime ******************************************
 
 
 // Baseline the Start of the TimeDuration count, OR reset _duration back to zero
@@ -41,9 +41,9 @@ void TimeDuration::startTime()
 // ************************ doTime ******************************************
 
 
+// Figure out how long has past since startTime() and return a int array in format [dd,hh,mm,ss,ms]
 
-// Figure out how long has past since timeStart and return a Byte array in format [dd,hh,mm,ss,ms]
-void TimeDuration::doTime(int _duration[4])
+void TimeDuration::doTime(int _duration[])
 {
   unsigned long _elapsed;
   _elapsed = (millis() - _timeStart);
@@ -65,8 +65,8 @@ void TimeDuration::doTime(int _duration[4])
   }
   if (_elapsed >= OneSecond)
   {
-    _duration[3] = _elapsed / OneSecond;         // determine how many full days in number
-    _duration[4] = _elapsed - (_duration[3] * OneSecond); // Removes full mins, so TIME is less than 1 min
+    _duration[3] = _elapsed / OneSecond;         // determine how many full secs in number
+    _duration[4] = _elapsed - (_duration[3] * OneSecond); // Removes full secs, so TIME is less than 1 sec
     // Less than full seconds not used on display, no more math needed
   }
   
@@ -151,7 +151,7 @@ String TimeDuration::showTime(int _duration[], char _first = 'd', char _last = '
 
 // ************************ makeTime ******************************************
 
-// Convert a duration array[4] with format (dd,hh,mm,ss,ms) to the number of ms for that duration
+// Convert a duration array[5] with format (dd,hh,mm,ss,ms) to the number of ms for that duration
 
 
 
