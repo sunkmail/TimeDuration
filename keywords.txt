@@ -1,7 +1,22 @@
-TimeDuration  KEYWORD1
+#######################################
+# Syntax Coloring Map TimeDuration
+#######################################
 
-doTime  KEYWORD2
-makeTime  KEYWORD2
-showTime  KEYWORD2
-startTime KEYWORD2
-startOfTime KEYWORD2
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+TimeDuration	KEYWORD1	TimeDuration
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+doingTime	KEYWORD2
+makeTime	KEYWORD2
+showTime	KEYWORD2
+startOfTime	KEYWORD2
+outtaTime KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
