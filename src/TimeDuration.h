@@ -23,8 +23,8 @@ class TimeDuration {
  
   private:
   unsigned long _timeStart;
-  int _duration[4];
-  int _setDuration[4];  
+  int _duration[5];
+  int _setDuration[5];  
   unsigned long _makeMillis;
 
 };
