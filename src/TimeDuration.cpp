@@ -38,12 +38,12 @@ void TimeDuration::startTime()
 
 
 
-// ************************ doTime ******************************************
+// ************************ doingTime ******************************************
 
 
 // Figure out how long has past since startTime() and return a int array in format [dd,hh,mm,ss,ms]
 
-void TimeDuration::doTime(int _duration[])
+void TimeDuration::doingTime(int _duration[])
 {
   unsigned long _elapsed;
   _elapsed = (millis() - _timeStart);
