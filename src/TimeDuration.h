@@ -1,4 +1,4 @@
-// TimeDuration V0.0 - Scott Mitten  sunkmail@gmail.com
+// TimeDuration V0.0.1 - Scott Mitten  sunkmail@gmail.com
 
 #ifndef TIMEDURATION_H
 #define TIMEDURATION_H
@@ -15,17 +15,24 @@ class TimeDuration {
   public:
   TimeDuration();
   ~TimeDuration();
-  void startTime();
+  void startOfTime();
   void doTime(int _duration[]);
   String showTime(int _duration[], char _first, char _last);  //see .cpp file for 'char' usage
   unsigned long makeTime(int setDuration[]);
-
+  //for next function names ?? :)
+  // nextTime() 
+  // onTime()  
+  // outtaTime()
+  
+  // compare duration function - make 2, one set for ms, one for data array
  
   private:
   unsigned long _timeStart;
-  int _duration[5];
-  int _setDuration[5];  
+  int _duration[];
+  int _setDuration[];  
   unsigned long _makeMillis;
+  char _first;
+  char _last;
 
 };
 
