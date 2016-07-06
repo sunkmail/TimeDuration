@@ -16,7 +16,7 @@ class TimeDuration {
   TimeDuration();
   ~TimeDuration();
   void startOfTime();
-  void doingTime(int _duration[]);
+  unsigned long doingTime(int _duration[]);
   String showTime(int _duration[], char _first, char _last);  //see .cpp file for 'char' usage
   unsigned long makeTime(int setDuration[]);
   //for next function names ?? :)
@@ -34,6 +34,5 @@ class TimeDuration {
   char _last;
 
 };
-
 
 #endif
