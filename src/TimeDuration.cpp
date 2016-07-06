@@ -43,10 +43,11 @@ void TimeDuration::startOfTime()
 
 // Figure out how long has past since startTime() and return a int array in format [dd,hh,mm,ss,ms]
 
-void TimeDuration::doingTime(int _duration[])
+unsigned long TimeDuration::doingTime(int _duration[])
 {
-  unsigned long _elapsed;
+  unsigned long _elapsed, _elapsed2;
   _elapsed = (millis() - _timeStart);
+  _elapsed2 = _elapsed;
 
   if (_elapsed >= OneDay)
   {
@@ -69,7 +70,7 @@ void TimeDuration::doingTime(int _duration[])
     _duration[4] = _elapsed - (_duration[3] * OneSecond); // Removes full secs, so TIME is less than 1 sec
     // Less than full seconds not used on display, no more math needed
   }
-  
+  return _elapsed2;
 }
 
 
@@ -163,5 +164,3 @@ unsigned long TimeDuration::makeTime(int _setDuration[])
 
   return _makeMillis;
 }
-
-
