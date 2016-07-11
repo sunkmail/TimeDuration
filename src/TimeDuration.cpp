@@ -1,4 +1,4 @@
-// TimeDuration V0.0.1-beta - Scott Mitten  sunkmail@gmail.com
+// TimeDuration v1.0.0 - Scott Mitten  sunkmail@gmail.com
 
 #include "TimeDuration.h"
 
@@ -15,7 +15,7 @@ int _setDuration[] = {0, 0, 0, 0, 0};
 //<<constructor>>
 TimeDuration::TimeDuration()
 {
-  startOfTime();                        // sets baseline time, incase not done later.
+  startOfTime();                        // sets baseline time, incase not done explicitly later.
   /* Nothing else to Construct */
 }
 
