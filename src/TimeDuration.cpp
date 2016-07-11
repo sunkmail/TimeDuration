@@ -1,4 +1,4 @@
-// TimeDuration v1.0.0 - Scott Mitten  sunkmail@gmail.com
+// TimeDuration v1.1.0 - Scott Mitten  sunkmail@gmail.com
 
 #include "TimeDuration.h"
 
@@ -49,27 +49,19 @@ unsigned long TimeDuration::doingTime(int _duration[])
   _elapsed = (millis() - _timeStart);
   _elapsed2 = _elapsed;
 
-  if (_elapsed >= OneDay)
-  {
-    _duration[0] = _elapsed / OneDay;         // determine how many full days in number
-    _elapsed = _elapsed - (_duration[0] * OneDay); // Removes full days, so TIME is less than 1 Day
-  }
-  if (_elapsed >= OneHour)
-  {
-    _duration[1] = _elapsed / OneHour;         // determine how many full hours in number
-    _elapsed = _elapsed - (_duration[1] * OneHour); // Removes full hours, so TIME is less than 1 Hour
-  }
-  if (_elapsed >= OneMin)
-  {
-    _duration[2] = _elapsed / OneMin;         // determine how many full mins in number
-    _elapsed = _elapsed - (_duration[2] * OneMin); // Removes full mins, so TIME is less than 1 min
-  }
-  if (_elapsed >= OneSecond)
-  {
-    _duration[3] = _elapsed / OneSecond;         // determine how many full secs in number
-    _duration[4] = _elapsed - (_duration[3] * OneSecond); // Removes full secs, so TIME is less than 1 sec
-    // Less than full seconds not used on display, no more math needed
-  }
+  _duration[0] = _elapsed / OneDay;         // determine how many full days in number
+   _elapsed = _elapsed - (_duration[0] * OneDay); // Removes full days, so TIME is less than 1 Day
+
+  _duration[1] = _elapsed / OneHour;         // determine how many full hours in number
+  _elapsed = _elapsed - (_duration[1] * OneHour); // Removes full hours, so TIME is less than 1 Hour
+
+  _duration[2] = _elapsed / OneMin;         // determine how many full mins in number
+  _elapsed = _elapsed - (_duration[2] * OneMin); // Removes full mins, so TIME is less than 1 min
+
+  _duration[3] = _elapsed / OneSecond;         // determine how many full secs in number
+  _duration[4] = _elapsed - (_duration[3] * OneSecond); // Removes full secs, so TIME is less than 1 sec
+    // Less than full seconds don't need more math
+  
   return _elapsed2;
 }
 
